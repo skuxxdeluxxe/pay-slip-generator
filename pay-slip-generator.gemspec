@@ -17,12 +17,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin\/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
-  spec.add_dependency 'aws-sdk', '~> 2'
-  spec.add_dependency 'rest-client', '~> 1.8'
-  spec.add_dependency 'json', '~> 1.8'
   spec.add_dependency 'activesupport', '~> 4.2'
-  spec.add_dependency 'rubyzip', '~> 1.2'
-  spec.add_dependency 'ruby-oci8'
-  spec.add_dependency 'influxdb'
+
+  spec.add_development_dependency 'bundler', '~> 1.12'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'rubocop', '0.50.0' # The latest version that still supports Ruby 2.0
+  spec.add_development_dependency 'rainbow', '2.2.2' # A dependency of rubocop, newer versions require Ruby 2.1
 end
