@@ -3,8 +3,8 @@ Pay Slip Generator
 
 The pay slip generator will generate a pay slip based on the following details:
 
-* First name
-* Last name
+* First Name
+* Last Name
 * Annual Income
 * Super Annuation Rate
 * Payment Period
