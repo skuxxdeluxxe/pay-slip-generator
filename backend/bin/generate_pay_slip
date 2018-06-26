@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'pay_slip_generator/pay_slip'
+require './lib/pay_slip_generator/pay_slip'
 
 first_name = ARGV[0]
 last_name = ARGV[1]
@@ -10,7 +10,6 @@ payment_period = ARGV[4]
 
 slip = PaySlipGenerator::PaySlip.new first_name, last_name, annual_salary, super_rate, payment_period
 
-puts 'Generating pay slip'
 result = slip.generate
 output = "#{result[:first_name]} #{result[:last_name]}, #{result[:payment_period]}, #{result[:gross_income]}, #{result[:income_tax]},
  #{result[:net_income]}, #{result[:super_annuation]}"

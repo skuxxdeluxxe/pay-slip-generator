@@ -1,2 +1,2 @@
-rspec.xml
-*.gem
+backend/rspec.xml
+backend/*.gem
