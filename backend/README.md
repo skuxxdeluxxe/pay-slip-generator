@@ -1,47 +1,35 @@
-Pay Slip Generator
+Pay Slip Generator Backend
 ======
 
-The pay slip generator will generate a pay slip based on the following details:
+This will deploy the backend container for the pay slip generator application
 
-* First Name
-* Last Name
-* Annual Income
-* Super Annuation Rate
-* Payment Period
+## Deploy the container
 
-## Assumptions
+    $ bundle install
+    $ gem build pay-slip-generator.gemspec
+    $ docker build -f Dockerfile -t skuxxdeluxxe117/pay-slip-generator-logic .
+    $ docker run -d -p 5000:5000 skuxxdeluxxe117/pay-slip-generator-logic
 
-* Super Annuation Rate provided as an integer string with no '%' sign i.e 9, not 9% or 0.09.
-* Annual Income provided with no commas to denonte thousands i.e 60500, not 60,500.
-* Payment Period to be a string entered and used as verbatim. No figuring out start and end dates for months.
+## Run application locally
 
-## Prerequisites
-
-* Ruby 2.0.0
-* Bundler 1.15.4
-
-## Installation
-
-1. Retrieve dependancies:
-    ```
-    bundle install
-    ```
-2. Build and install the gem:
-    ```
-    gem build pay-slip-generator.gemspec
-    gem install --local pay-slip-generator-0.1.0.gem
-    ```
+    $ bundle install
+    $ gem build pay-slip-generator.gemspec
+    $ gem install pay-slip-generator-0.1.0.gem
+    $ cd flask-app
+    $ pip install -r requirements.txt
+    $ pip install -U flask-cors
+    $ python -m textblob.download_corpora
+    $ python app.py
 
 ## Usage
 
-Run the following executable with the arguments mentioned above for example:
+Run the following curl command:
 
-    $ generate_pay_slip David Rudd 60050 9 '01 March - 31 March'
+    $ curl -d '{"firstName":"value1", "lastName":"value2", "annualSalary":"60050", "superRate":"9", "paymentPeriod":"30 March"}' -H "Content-Type: application/json" -X POST http://localhost:5000/generate
 
 Expected output:
 
-    Generating pay slip
-    David Rudd, 01 March - 31 March, 5004, 922, 4082, 450
+    {"error":"","paySlip":"value1 value2, 30 March, 5004, 922, 4082, 450\n"}
 
 ## Tests
 
