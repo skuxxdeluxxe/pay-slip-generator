@@ -16,19 +16,18 @@ module PaySlipGenerator
       raise('Invalid super rate, must be between 0 and 50') if @super_rate < 0 || @super_rate > 50
     end
 
+    # rubocop:disable Metrics/MethodLength
     def generate
       gross_income = calculate_gross_income @annual_income
       income_tax = calculate_tax @annual_income
-      net_income = calculate_net_income gross_income, income_tax
-      super_annuation = calculate_super @super_rate, gross_income
       {
         first_name: @first_name,
         last_name: @last_name,
         payment_period: @payment_period,
         gross_income: gross_income,
         income_tax: income_tax,
-        net_income: net_income,
-        super_annuation: super_annuation
+        net_income: calculate_net_income(gross_income, income_tax),
+        super_annuation: calculate_super(@super_rate, gross_income)
       }
     end
 
