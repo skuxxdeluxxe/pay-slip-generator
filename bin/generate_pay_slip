@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'pay_slip_generator/pay_slip'
+
+first_name = ARGV[0]
+last_name = ARGV[1]
+annual_salary = ARGV[2]
+super_rate = ARGV[3]
+start_date = ARGV[4]
+
+
+slip = PaySlipGenerator::PaySlip.new first_name, last_name, annual_salary, super_rate, start_date
+slip.generate

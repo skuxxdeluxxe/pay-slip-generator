@@ -1,0 +1,62 @@
+PATH
+  remote: .
+  specs:
+    pay-slip-generator (0.1.0)
+      activesupport (~> 4.2)
+      aws-sdk (~> 2)
+      influxdb
+      json (~> 1.8)
+      rest-client (~> 1.8)
+      ruby-oci8
+      rubyzip (~> 1.2)
+
+GEM
+  remote: http://artifactory/artifactory/api/gems/rubygems.org/
+  specs:
+    activesupport (4.2.9)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    aws-sdk (2.10.21)
+      aws-sdk-resources (= 2.10.21)
+    aws-sdk-core (2.10.21)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.10.21)
+      aws-sdk-core (= 2.10.21)
+    aws-sigv4 (1.0.1)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    i18n (0.8.6)
+    influxdb (0.3.15)
+      json
+    jmespath (1.3.1)
+    json (1.8.6)
+    mime-types (2.99.3)
+    minitest (5.10.3)
+    netrc (0.11.0)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    ruby-oci8 (2.2.4.1)
+    rubyzip (1.2.1)
+    thread_safe (0.3.6)
+    tzinfo (1.2.3)
+      thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.10)
+  pay-slip-generator!
+
+BUNDLED WITH
+   1.15.3
