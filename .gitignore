@@ -1,2 +1,4 @@
 backend/rspec.xml
 backend/*.gem
+frontend/node_modules
+frontend/build

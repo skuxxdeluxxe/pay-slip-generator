@@ -1,12 +1,13 @@
 from textblob import TextBlob
 from flask import Flask, request, jsonify
 import subprocess
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route("/generate", methods=['POST'])
-def analyse_sentiment():
+def generatePaySlip():
     firstName = request.get_json()['firstName']
     lastName = request.get_json()['lastName']
     paymentPeriod = request.get_json()['paymentPeriod']
@@ -19,7 +20,6 @@ def analyse_sentiment():
     return jsonify(
         paySlip=output
     )
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

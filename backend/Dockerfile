@@ -8,6 +8,7 @@ RUN gem install bundler
 RUN gem install activesupport
 RUN gem install pay-slip-generator-0.1.0.gem
 RUN pip install -r requirements.txt
+RUN pip install -U flask-cors
 RUN python -m textblob.download_corpora
 EXPOSE 5000
 ENTRYPOINT ["python"]
