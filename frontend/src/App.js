@@ -56,7 +56,7 @@ class App extends Component {
                                    hintText="Annual Salary"/>
                         <TextField ref={ref => this.superRate = ref} onKeyUp={this.onEnterPress.bind(this)}
                                    hintText="Super Rate"/>
-                        <RaisedButton  label="Send" style={style} onClick={this.generatePaySlip.bind(this)}/>
+                        <RaisedButton  label="Generate" style={style} onClick={this.generatePaySlip.bind(this)}/>
                         {paySlipRenderer}
                     </Paper>
                 </div>
