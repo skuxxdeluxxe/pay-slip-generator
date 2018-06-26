@@ -9,4 +9,10 @@ super_rate = ARGV[3]
 start_date = ARGV[4]
 
 slip = PaySlipGenerator::PaySlip.new first_name, last_name, annual_salary, super_rate, start_date
-puts slip.generate
+
+puts 'Generating pay slip'
+result = slip.generate
+output = "#{result[:first_name]} #{result[:last_name]}, #{result[:payment_period]}, #{result[:gross_income]}, #{result[:income_tax]},
+ #{result[:net_income]}, #{result[:super_annuation]}"
+
+puts output.delete("\n")

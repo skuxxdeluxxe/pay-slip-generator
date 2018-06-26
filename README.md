@@ -34,4 +34,5 @@ Run the following executable with the arguments mentioned above for example
 
 Expected Output
 
+    Generating pay slip
     David Rudd, 01 March – 31 March, 5004, 922, 4082, 450
