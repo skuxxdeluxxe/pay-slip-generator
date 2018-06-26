@@ -9,6 +9,12 @@ The pay slip generator will generate a pay slip based on the following details:
 * Super Annuation Rate
 * Payment Period
 
+## Assumptions
+
+* Super Annuation Rate provided as an integer string with no '%' sign i.e 9, not 9% or 0.09
+* Annual Income provided with no commas to denonte thousands i.e 60500, not 60,500
+* Payment Period to be a string entered and used as verbatim. No figuring our start and end dates for Months
+
 ## Prerequisites
 
 * Ruby 2.0.0
