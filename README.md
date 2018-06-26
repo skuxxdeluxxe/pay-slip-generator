@@ -26,28 +26,28 @@ This solution will deploy two containers on your local machine to run the pay sl
 ## Start the Application (FAST)
 
 1. Run the start-app script
-
+    ```
     $ ./start-app.sh
-
+    ```
 2. Open your favourite browser at http://localhost:3000
 
 ## Start the Application (SLOW)
 
 1. Build and deploy the frontend
-
+    ```
     $ cd frontend
     $ npm install
     $ npm run build
     $ docker build -f Dockerfile -t skuxxdeluxxe117/pay-slip-generator-frontend .
     $ docker run -d -p 3000:80 skuxxdeluxxe117/pay-slip-generator-frontend
-
+    ```
 2. Build and deploy the backend
-
+    ```
     $ cd backend
     $ gem build pay-slip-generator.gemspec
     $ docker build -f Dockerfile -t skuxxdeluxxe117/pay-slip-generator-logic .
     $ docker run -d -p 5000:5000 skuxxdeluxxe117/pay-slip-generator-logic
-
+    ```
 3. Open your favourite browser at http://localhost:3000
 
 ## Tests
