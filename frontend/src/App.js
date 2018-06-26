@@ -14,7 +14,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            paySlip: undefined
+            paySlip: undefined,
+            error: undefined
         };
     };
 
@@ -38,7 +39,7 @@ class App extends Component {
     };
 
     render() {
-        const polarityComponent = this.state.paySlip !== undefined ? <Polarity paySlip={this.state.paySlip}/> : null;
+        const polarityComponent = this.state.paySlip !== undefined ? <Polarity paySlip={this.state.paySlip} error={this.state.error}/> : null;
 
         return (
             <MuiThemeProvider>

@@ -1,21 +1,27 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash'
 
 class Polarity extends Component {
 
     propTypes = {
-        paySlip: PropTypes.string.isRequired
+        paySlip: PropTypes.string.isRequired,
+        error: PropTypes.string.isRequired
     };
 
     render() {
-        const green = 255 //Math.round((this.props.polarity + 1) * 128);
-        const red = 0;
+        const green = _.isEmpty(this.props.paySlip) ? 0 : 255;
+        const red = _.isEmpty(this.props.error) ? 0 : 255
         const textColor = {
             backgroundColor: 'rgb(' + red + ', ' + green + ', 0)',
             padding: '15px'
         };
 
-        return <div style={textColor}>"Generated Payslip: {this.props.paySlip}"</div>
+        if(_.isEmpty(this.props.error)) {
+            return <div style={textColor}>"Generated Payslip: {this.props.paySlip}"</div>
+        }
+
+        return <div style={textColor}>"{this.props.error}"</div>
     }
 }
 

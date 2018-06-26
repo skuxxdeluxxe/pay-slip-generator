@@ -14,16 +14,12 @@ def generatePaySlip():
     annualSalary = request.get_json()['annualSalary']
     superRate = request.get_json()['superRate']
 
-    print firstName
-    print lastName
-    print paymentPeriod
-    print annualSalary
-    print superRate
-    output = subprocess.Popen(['generate_pay_slip', firstName, lastName, annualSalary, superRate, paymentPeriod], stdout=subprocess.PIPE).communicate()[0]
+    output = subprocess.Popen(['generate_pay_slip', firstName, lastName, annualSalary, superRate, paymentPeriod],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 
-    print output
     return jsonify(
-        paySlip=output
+        paySlip=output[0],
+        error=output[1]
     )
 
 if __name__ == '__main__':
