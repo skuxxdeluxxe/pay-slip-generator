@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/pay_slip_generator/pay_slip'
+require 'pay_slip_generator/pay_slip'
 
 first_name = ARGV[0]
 last_name = ARGV[1]
