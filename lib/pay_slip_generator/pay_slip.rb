@@ -5,15 +5,9 @@ module PaySlipGenerator
     def initialize(first_name, last_name, annual_income, super_rate, payment_period)
       @first_name = first_name || raise('Must provide first name')
       @last_name = last_name || raise('Must provide last name')
-      raise('Must provide annual income') if annual_income.nil?
-      raise('Must provide super rate') if super_rate.nil?
       @payment_period = payment_period || raise('Must provide payment period')
-
-      raise('Annual income must be a number') unless numeric? annual_income
-      raise('Super rate must be a number') unless numeric? super_rate
-      @annual_income = annual_income.to_f
-      @super_rate = super_rate.to_f
-      raise('Invalid super rate, must be between 0 and 50') if @super_rate < 0 || @super_rate > 50
+      @annual_income = validate_annual_income annual_income
+      @super_rate = validate_super_rate super_rate
     end
 
     # rubocop:disable Metrics/MethodLength
@@ -32,6 +26,20 @@ module PaySlipGenerator
     end
 
     private
+
+    def validate_annual_income(annual_income)
+      raise('Must provide annual income') if annual_income.nil?
+      raise('Annual income must be a number') unless numeric? annual_income
+      annual_income.to_f
+    end
+
+    def validate_super_rate(super_rate)
+      raise('Must provide super rate') if super_rate.nil?
+      raise('Super rate must be a number') unless numeric? super_rate
+      rate = super_rate.to_f
+      raise('Invalid super rate, must be between 0 and 50') if rate < 0 || rate > 50
+      rate
+    end
 
     def calculate_super(super_rate, gross_income)
       (gross_income.to_f * (super_rate.to_f / 100)).round
