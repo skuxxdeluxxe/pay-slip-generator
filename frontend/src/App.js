@@ -4,7 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
-import Polarity from "./components/Polarity";
+import PaySlipRenderer from "./components/PaySlipRenderer";
 
 const style = {
     marginLeft: 12,
@@ -39,7 +39,7 @@ class App extends Component {
     };
 
     render() {
-        const polarityComponent = this.state.paySlip !== undefined ? <Polarity paySlip={this.state.paySlip} error={this.state.error}/> : null;
+        const paySlipRenderer = this.state.paySlip !== undefined ? <PaySlipRenderer paySlip={this.state.paySlip} error={this.state.error}/> : null;
 
         return (
             <MuiThemeProvider>
@@ -57,7 +57,7 @@ class App extends Component {
                         <TextField ref={ref => this.superRate = ref} onKeyUp={this.onEnterPress.bind(this)}
                                    hintText="Super Rate"/>
                         <RaisedButton  label="Send" style={style} onClick={this.generatePaySlip.bind(this)}/>
-                        {polarityComponent}
+                        {paySlipRenderer}
                     </Paper>
                 </div>
             </MuiThemeProvider>

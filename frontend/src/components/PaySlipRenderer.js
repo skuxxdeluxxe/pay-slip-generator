@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash'
 
-class Polarity extends Component {
+class PaySlipRenderer extends Component {
 
     propTypes = {
         paySlip: PropTypes.string.isRequired,
@@ -25,4 +25,4 @@ class Polarity extends Component {
     }
 }
 
-export default Polarity;
+export default PaySlipRenderer;
