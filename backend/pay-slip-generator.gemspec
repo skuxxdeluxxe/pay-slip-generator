@@ -3,13 +3,6 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pay_slip_generator/version'
 
-some = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-puts some
-puts '==============='
-thing = some.grep(%r{^bin\/}) { |f| File.basename(f) }
-puts thing
-
-
 Gem::Specification.new do |spec|
   spec.name          = 'pay-slip-generator'
   spec.version       = PaySlipGenerator::VERSION

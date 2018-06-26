@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Polarity extends Component {
 
     propTypes = {
-        payslip: PropTypes.string.isRequired
+        paySlip: PropTypes.string.isRequired
     };
 
     render() {
@@ -15,7 +15,7 @@ class Polarity extends Component {
             padding: '15px'
         };
 
-        return <div style={textColor}>"{this.props.payslip}"</div>
+        return <div style={textColor}>"Generated Payslip: {this.props.paySlip}"</div>
     }
 }
 
