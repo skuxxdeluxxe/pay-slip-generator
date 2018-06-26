@@ -32,7 +32,13 @@ Run the following executable with the arguments mentioned above for example
 
     $ generate_pay_slip David Rudd 60050 9 '01 March - 31 March'
 
+## Tests
+
+Run the following rake task
+
+    $ bundle exec rake
+
 Expected Output
 
     Generating pay slip
-    David Rudd, 01 March – 31 March, 5004, 922, 4082, 450
+    David Rudd, 01 March - 31 March, 5004, 922, 4082, 450
