@@ -29,11 +29,13 @@ The pay slip generator will generate a pay slip based on the following details:
 ## Usage
 
 Run the following executable with the arguments mentioned above for example
+
     ```
-    generate_pay_slp `David` `Rudd` `60050` `9` `'01 March - 31 March'`
+    $ generate_pay_slp David Rudd 60050 9 `01 March - 31 March`
     ```
 
 Expected Output
+
     ```
     David Rudd, 01 March – 31 March, 5004, 922, 4082, 450
     ```
