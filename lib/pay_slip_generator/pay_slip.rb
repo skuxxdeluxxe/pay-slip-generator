@@ -42,26 +42,27 @@ module PaySlipGenerator
     end
 
     def calculate_super(super_rate, gross_income)
-      (gross_income.to_f * (super_rate.to_f / 100)).round
+      (gross_income * (super_rate / 100)).round
     end
 
     def calculate_gross_income(annual_income)
-      (annual_income.to_f / 12).round
+      (annual_income / 12).round
     end
 
     def calculate_tax(annual_income)
-      income = annual_income.to_f
-      return 0 if income <= 18_200
-      return ((income * 0.19) / 12).round if income <= 37_000
-      return ((3572 + ((income - 37_000) * 0.325)) / 12).round if income <= 80_000
-      return ((17_547 + ((income - 80_000) * 0.37)) / 12).round if income <= 180_000
-      return ((54_547 + ((income - 180_000) * 0.45)) / 12).round if income > 180_000
+      return 0 if annual_income <= 18_200
+      return ((annual_income * 0.19) / 12).round if annual_income <= 37_000
+      return ((3572 + ((annual_income - 37_000) * 0.325)) / 12).round if annual_income <= 80_000
+      return ((17_547 + ((annual_income - 80_000) * 0.37)) / 12).round if annual_income <= 180_000
+      return ((54_547 + ((annual_income - 180_000) * 0.45)) / 12).round if annual_income > 180_000
     end
 
     def calculate_net_income(gross_income, income_tax)
       gross_income - income_tax
     end
 
+    # rubocop:disable Style/RescueModifier
+    # rubocop:disable Lint/RescueWithoutErrorClass
     def numeric?(number)
       true if Float(number) rescue false
     end
