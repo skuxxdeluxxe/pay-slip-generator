@@ -1,0 +1,22 @@
+---
+Metrics/LineLength:
+  Max: 140
+
+Metrics/AbcSize:
+  Max: 25
+
+PerceivedComplexity:
+  Max: 8
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+
+Layout/IndentHeredoc:
+  Exclude:
+    - 'bin/*'

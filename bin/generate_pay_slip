@@ -8,6 +8,5 @@ annual_salary = ARGV[2]
 super_rate = ARGV[3]
 start_date = ARGV[4]
 
-
 slip = PaySlipGenerator::PaySlip.new first_name, last_name, annual_salary, super_rate, start_date
-slip.generate
+puts slip.generate

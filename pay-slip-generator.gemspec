@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '0.50.0' # The latest version that still supports Ruby 2.0
   spec.add_development_dependency 'rainbow', '2.2.2' # A dependency of rubocop, newer versions require Ruby 2.1
+  spec.add_development_dependency 'rspec_junit_formatter'
 end
